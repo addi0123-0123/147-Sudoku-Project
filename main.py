@@ -70,15 +70,15 @@ def main():
                         difficulty = "Hard"
 
                 # if difficulty == "Easy":
-                    # board = Board(9, 9, screen) or some logic like this
-                    # goal is to set up a board of 9x9 w/ randomized
+                    # 'board = Board(9, 9, screen)' or some logic like this...
+                    # Goal is to set up a board of 9x9 w/ randomized
                     # numbers filled in based on chosen difficulty.
                 # elif difficulty == 'Medium':
                     # <logic here>
                 # elif difficulty == 'Hard':
                     # <logic here>
 
-                # then, set up sudoku screen:
+                # then, setup & draw game screen:
                 game_screen(board, screen)
                 reset_button.draw(screen)
                 restart_button.draw(screen)
