@@ -44,10 +44,9 @@ def main():
     pygame.display.update()
 
     # initialize variables:
-    board = Board(9, 9, screen)
-    screen_status = 0
+    screen_type = 'start screen'
     game_over = False
-    difficulty = "Easy"
+    difficulty = '' # initialize as 'easy' instead?
 
     # event loop
     while True:
@@ -60,36 +59,37 @@ def main():
                 pygame.quit()
                 sys.exit()  # hard quits the program. prevents an error happening after closing program.
 
-            if screen_status == 0: # means: is the player on the starting screen?
+            if screen_type == 'start screen': 
                 if mouse_click[0]:
                     if easy_button.is_clicked(mouse_pos):
-                        difficulty = "Easy"
-                    if medium_button.is_clicked(mouse_pos):
-                        difficulty = "Medium"
-                    if hard_button.is_clicked(mouse_pos):
-                        difficulty = "Hard"
+                        difficulty = "easy"
+                    elif medium_button.is_clicked(mouse_pos):
+                        difficulty = "medium"
+                    elif hard_button.is_clicked(mouse_pos):
+                        difficulty = "hard"
 
-                # if difficulty == "Easy":
-                    # 'board = Board(9, 9, screen)' or some logic like this...
+                if difficulty == "easy":
+                    board = Board(9, 9, screen, 'easy') #or some logic like this...
                     # Goal is to set up a board of 9x9 w/ randomized
                     # numbers filled in based on chosen difficulty.
-                # elif difficulty == 'Medium':
-                    # <logic here>
-                # elif difficulty == 'Hard':
-                    # <logic here>
+                elif difficulty == 'Medium':
+                    board = Board(9, 9, screen, 'medium')
+                elif difficulty == 'Hard':
+                    board = Board(9, 9, screen, 'hard')
 
-                # then, setup & draw game screen:
+                # then, set up & draw game screen:
                 game_screen(board, screen)
                 reset_button.draw(screen)
                 restart_button.draw(screen)
                 exit_button.draw(screen)
 
-                screen_status = 1
+                screen_type = 'game screen'
 
-            if screen_status == 1:
+            if screen_type == 'game screen':
+                # <logic here>
                 pass
 
-        pygame.display.update() # ALWAYS KEEP AT END OF THIS WHILE-LOOP. (it updates display so screen isn't all black)
+        pygame.display.update() # ALWAYS KEEP AT END OF THIS WHILE-LOOP. (it updates display to prevent it from being black)
 
 if __name__ == '__main__':
     main()
