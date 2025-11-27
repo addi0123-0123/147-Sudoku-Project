@@ -8,9 +8,11 @@ class Cell:
         self.col = col
 
     def set_cell_value(self, value):
+        # need to write logic for this.
         pass
 
     def set_sketched_value(self, value):
+        # need to write logic for this.
         pass
 
     def draw(self, screen):
