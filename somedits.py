@@ -38,7 +38,17 @@ class SudokuGenerator:
             print()
     def valid_in_row(self, row, num):
         return num not in self.board[row]
-
+    def valid_in_col(self, col, num):
+        for r in range(self.row_length):
+            if self.board[r][col] == num:
+                return False
+        return True
+    def valid_in_box(self, row_start, col_start, num):
+        for r in range(row_start, row_start + self.box_length):
+            for c in range(col_start, col_start + self.box_length):
+                if self.board[r][c] == num:
+                    return False
+        return True
 
 '''
 Basically I tried to add difficult parameter and 
