@@ -18,8 +18,8 @@ class Cell:
     def draw(self, screen):
         num_font = pygame.font.Font(None, NUM_FONT)
 
-        if self.value == '0': # leave cells w/ value '0' empty on screen.
-            return
+        if self.value == 0 or self.value == '0': # leave cells w/ value 0 (or '0') empty on screen.
+            return None
 
         text_surf = num_font.render(str(self.value), True, PRINTED_NUM_COLOR)
         text_rect = text_surf.get_rect(center=(self.col * SQUARE_SIZE + SQUARE_SIZE / 2,
