@@ -3,7 +3,7 @@ from board import *
 from constants import *
 from sudoku_generator import generate_sudoku
 
-# ALL THIS DOES RIGHT NOW IS LAUNCH THE PROGRAM WITH NUMBERS // NEED TO ADD PUTTING IN NUMBERS AND RESET
+# ALL THIS DOES RIGHT NOW IS LAUNCH THE PROGRAM WITH NUMBERS // NEED TO ADD PUTTING IN NUMBERS AND RESET // FEEL FREE TO CHANGE IF NEEDED
 
 def start_screen(screen, title_text_font):
     screen.fill(BG_COLOR)
